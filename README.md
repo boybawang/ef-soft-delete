@@ -7,7 +7,7 @@ The class also initiales the DbContext in such a way that only those columns whi
 Usage:
 You must subclass DbContextBase and define your DBSets in that subclass either in Code First or Database First scenarios.
 One caveat, the DbSets should be typed as IDbSet<>.
-
+=================
 namespace MyApp.Data
 {
         using Juppir.EfSoftDeleteDbContext;
