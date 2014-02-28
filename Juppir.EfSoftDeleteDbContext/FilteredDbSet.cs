@@ -21,6 +21,11 @@ namespace Juppir.EfSoftDeleteDbContext
         {
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="path"></param>
+        /// <returns></returns>
         public IQueryable<TEntity> Include(string path)
         {
             return _set.Include(path).Where(_filter).AsQueryable();
