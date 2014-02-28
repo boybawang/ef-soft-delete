@@ -16,7 +16,7 @@ namespace MyApp.Data
         {
                 static MyAppDbContext()
                 {
-                    Database.SetInitializer<DbContextBase>(null);
+                    Database.SetInitializer<MyAppDbContext>(null);
                 }
                 public MyAppDbContext(string connectionStringName)
                     : base(connectionStringName)
