@@ -8,24 +8,27 @@ Usage:
 You must subclass DbContextBase and define your DBSets in that subclass either in Code First or Database First scenarios.
 One caveat, the DbSets should be typed as IDbSet<>.
 
-using Juppir.EfSoftDeleteDbContext;
-public class MyAppDbContext : DbContextbase
+namespace MyApp.Data
 {
-        static MyAppDbContext()
+        using Juppir.EfSoftDeleteDbContext;
+        public class MyAppDbContext : DbContextbase
         {
-            Database.SetInitializer<DbContextBase>(null);
-        }
-        public MyAppDbContext(string connectionStringName)
-            : base(connectionStringName)
-        {
-            Contacts = new FilteredDbSet<Contact>(this, c => c.Deleted == false, null);
-        }
-        
-        public IDbSet<Customer> Customers { get; set; }
-        
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-          modelBuilder.Configurations.Add(new CustomerMap());
+                static MyAppDbContext()
+                {
+                    Database.SetInitializer<DbContextBase>(null);
+                }
+                public MyAppDbContext(string connectionStringName)
+                    : base(connectionStringName)
+                {
+                    Contacts = new FilteredDbSet<Contact>(this, c => c.Deleted == false, null);
+                }
+                
+                public IDbSet<Customer> Customers { get; set; }
+                
+                protected override void OnModelCreating(DbModelBuilder modelBuilder)
+                {
+                  modelBuilder.Configurations.Add(new CustomerMap());
+                }
         }
 }
 
