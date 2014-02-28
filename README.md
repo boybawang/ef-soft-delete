@@ -7,7 +7,9 @@ The class also initiales the DbContext in such a way that only those columns whi
 Usage:
 You must subclass DbContextBase and define your DBSets in that subclass either in Code First or Database First scenarios.
 One caveat, the DbSets should be typed as IDbSet<>.
-=================
+
+
+
 namespace MyApp.Data
 {
         using Juppir.EfSoftDeleteDbContext;
@@ -31,5 +33,6 @@ namespace MyApp.Data
                 }
         }
 }
+
 
 Also included in the solution are the modified EF Reverse Engineer Code First text templates to generate the same code above when using the EF Power Tools.
